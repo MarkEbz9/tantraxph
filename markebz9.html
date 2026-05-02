@@ -1,0 +1,2139 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tantra X PHILIPPINES - Dark Fantasy MMORPG</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&amp;family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { height: 100%; width: 100%; font-family: 'Crimson Text', Georgia, serif; }
+
+    .app-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: #0a0304;
+      color: #e8d5b0;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Cinematic background */
+    .hero-bg {
+      background: #0a0304;
+    }
+
+
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-25px) rotate(1deg); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { filter: drop-shadow(0 0 30px rgba(220, 38, 38, 0.8)); }
+      50% { filter: drop-shadow(0 0 50px rgba(220, 38, 38, 1)); }
+    }
+
+    @keyframes eye-flicker {
+      0%, 90%, 100% { opacity: 1; }
+      92%, 95% { opacity: 0.3; }
+    }
+
+    @keyframes title-glow {
+      0%, 100% { text-shadow: 0 0 40px rgba(220, 38, 38, 0.6), 0 0 80px rgba(220, 38, 38, 0.3), 0 2px 10px rgba(0, 0, 0, 0.9); }
+      50% { text-shadow: 0 0 70px rgba(220, 38, 38, 0.9), 0 0 130px rgba(220, 38, 38, 0.5), 0 2px 10px rgba(0, 0, 0, 0.9); }
+    }
+
+    @keyframes button-pulse {
+      0%, 100% { box-shadow: 0 0 25px rgba(220, 38, 38, 0.5), inset 0 0 15px rgba(220, 38, 38, 0.15); }
+      50% { box-shadow: 0 0 45px rgba(220, 38, 38, 0.85), inset 0 0 25px rgba(220, 38, 38, 0.25); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes runeSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes lightning {
+      0%, 95%, 100% { opacity: 0; }
+      96%, 98% { opacity: 1; }
+    }
+
+    @keyframes bloodDrip {
+      0% { height: 0; opacity: 1; }
+      80% { opacity: 1; }
+      100% { height: 40px; opacity: 0; }
+    }
+
+    .warrior-silhouette {
+      filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.95));
+    }
+
+    .demon-eyes {
+      animation: eye-flicker 3.5s ease-in-out infinite, pulse-glow 2.5s ease-in-out infinite;
+    }
+
+    .game-title {
+      animation: title-glow 3.5s ease-in-out infinite;
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-size: 2em;
+    }
+
+    .cinzel { font-family: 'Cinzel', serif; }
+    .crimson { font-family: 'Crimson Text', serif; }
+
+    .btn-primary {
+      animation: button-pulse 2.5s ease-in-out infinite;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border: 2px solid rgba(220, 38, 38, 0.7);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #8b0000 0%, #440000 100%);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 200, 150, 0.3), transparent);
+      transition: left 0.7s;
+    }
+
+    .btn-primary:hover::before { left: 100%; }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.03);
+      border-color: rgba(255, 100, 100, 1);
+    }
+
+    .btn-secondary {
+      transition: all 0.35s ease;
+      border: 2px solid rgba(180, 140, 90, 0.5);
+      background: rgba(20, 10, 10, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(220, 180, 120, 0.9);
+      background: rgba(40, 20, 20, 0.8);
+      transform: translateY(-3px);
+    }
+
+    .btn-facebook {
+      animation: button-pulse 2.5s ease-in-out infinite;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border: 2px solid rgba(59, 89, 152, 0.7);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #3b5998 0%, #1e3a5f 100%);
+    }
+
+    .btn-facebook::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.7s;
+    }
+
+    .btn-facebook:hover::before { left: 100%; }
+    .btn-facebook:hover {
+      transform: translateY(-3px) scale(1.03);
+      border-color: rgba(100, 150, 255, 1);
+    }
+
+    .btn-discord {
+      animation: button-pulse 2.5s ease-in-out infinite;
+      transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+      border: 2px solid rgba(88, 101, 242, 0.7);
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #5865f2 0%, #404bf9 100%);
+    }
+
+    .btn-discord::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.7s;
+    }
+
+    .btn-discord:hover::before { left: 100%; }
+    .btn-discord:hover {
+      transform: translateY(-3px) scale(1.03);
+      border-color: rgba(150, 160, 255, 1);
+    }
+
+    .rune-circle {
+      animation: runeSpin 40s linear infinite;
+    }
+
+    .rune-circle-reverse {
+      animation: runeSpin 30s linear infinite reverse;
+    }
+
+    .feature-card {
+      background: linear-gradient(145deg, rgba(25, 10, 12, 0.9) 0%, rgba(10, 4, 6, 0.95) 100%);
+      border: 1px solid rgba(139, 0, 0, 0.3);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.6), transparent);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(220, 38, 38, 0.6);
+      box-shadow: 0 20px 50px rgba(139, 0, 0, 0.3), 0 0 30px rgba(220, 38, 38, 0.15);
+    }
+
+    .feature-icon-wrap {
+      background: radial-gradient(circle, rgba(139, 0, 0, 0.4) 0%, transparent 70%);
+      transition: all 0.4s ease;
+    }
+
+    .feature-card:hover .feature-icon-wrap {
+      background: radial-gradient(circle, rgba(220, 38, 38, 0.6) 0%, transparent 70%);
+      transform: scale(1.1);
+    }
+
+    .ornament-line {
+      background: linear-gradient(90deg, transparent 0%, rgba(180, 140, 90, 0.6) 50%, transparent 100%);
+      height: 1px;
+    }
+
+    .vignette::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .stat-card {
+      background: linear-gradient(180deg, rgba(30, 12, 14, 0.7) 0%, rgba(10, 4, 6, 0.9) 100%);
+      border: 1px solid rgba(180, 140, 90, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .stat-number {
+      background: linear-gradient(180deg, #ffb366 0%, #dc2626 60%, #8b0000 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lightning-flash {
+      animation: lightning 8s ease-in-out infinite;
+    }
+
+    .slide-up {
+      opacity: 0;
+      animation: slideUp 1s ease-out forwards;
+    }
+
+    .scrollbar-styled::-webkit-scrollbar { width: 10px; }
+    .scrollbar-styled::-webkit-scrollbar-track { background: #0a0304; }
+    .scrollbar-styled::-webkit-scrollbar-thumb { background: #3a0a0a; border-radius: 5px; }
+    .scrollbar-styled::-webkit-scrollbar-thumb:hover { background: #5a1010; }
+
+    .text-shadow-strong { text-shadow: 0 2px 15px rgba(0, 0, 0, 0.9); }
+
+    .class-card {
+      background: linear-gradient(180deg, rgba(25, 10, 12, 0.8) 0%, rgba(10, 4, 6, 0.95) 100%);
+      border: 1px solid rgba(139, 0, 0, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .class-card:hover {
+      border-color: rgba(220, 38, 38, 0.7);
+      transform: translateY(-5px);
+    }
+
+    /* Nav */
+    .nav-wrap {
+      background: linear-gradient(180deg, rgba(10, 3, 4, 0.95) 0%, rgba(10, 3, 4, 0.7) 80%, transparent 100%);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 50%;
+      width: 0; height: 2px;
+      background: #dc2626;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav-link:hover::after { width: 100%; }
+
+    @media (max-width: 768px) {
+      .game-title-text { font-size: 3.5rem !important; }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="app-wrapper scrollbar-styled hero-bg"><!-- Navigation -->
+   <nav class="nav-wrap fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+     <div></div>
+     <div class="hidden md:flex items-center gap-8 cinzel text-sm tracking-widest text-amber-200/80"><a onclick="navigateTo('home', event)" class="nav-link hover:text-red-400">HOME</a> <a onclick="navigateTo('rankings', event)" class="nav-link hover:text-red-400">RANKINGS</a> <a onclick="navigateTo('donation', event)" class="nav-link hover:text-red-400">DONATION</a> <a onclick="navigateTo('downloads', event)" class="nav-link hover:text-red-400">DOWNLOADS</a>
+     </div>
+     <div class="flex items-center gap-2"><button onclick="showAuthPage(event)" class="btn-secondary px-5 py-2 rounded cinzel text-xs tracking-widest text-amber-100"> LOGIN </button>
+     </div>
+    </div>
+   </nav><!-- HERO SECTION -->
+   <section id="home" class="relative min-h-screen vignette overflow-hidden" style="padding-top: 80px;"><!-- Ember particles container -->
+    <div id="embers-container" class="absolute inset-0 pointer-events-none z-10"></div><!-- Smoke container -->
+    <div id="smoke-container" class="absolute inset-0 pointer-events-none z-5"></div><!-- Lightning flash -->
+    <div class="lightning-flash absolute inset-0 bg-red-900/10 pointer-events-none z-1"></div><!-- Decorative rune circles -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-20 z-0">
+     <svg class="rune-circle" width="700" height="700" viewbox="0 0 700 700"><circle cx="350" cy="350" r="340" fill="none" stroke="#dc2626" stroke-width="1" stroke-dasharray="4 12" /> <circle cx="350" cy="350" r="280" fill="none" stroke="#8b0000" stroke-width="1" stroke-dasharray="20 8" /> <g fill="#dc2626" font-family="Cinzel" font-size="18" text-anchor="middle">
+       <text x="350" y="25">
+        ✦
+       </text>
+       <text x="675" y="355">
+        ✦
+       </text>
+       <text x="350" y="695">
+        ✦
+       </text>
+       <text x="25" y="355">
+        ✦
+       </text>
+      </g>
+     </svg>
+    </div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none opacity-15 z-0">
+     <svg class="rune-circle-reverse" width="500" height="500" viewbox="0 0 500 500"><circle cx="250" cy="250" r="240" fill="none" stroke="#b8860b" stroke-width="1" stroke-dasharray="8 4" /> <circle cx="250" cy="250" r="200" fill="none" stroke="#dc2626" stroke-width="1" />
+     </svg>
+    </div><!-- Hero Content -->
+    <div class="relative z-20 max-w-7xl mx-auto px-6 md:px-12 pt-12 pb-24 flex flex-col items-center text-center"><!-- Top ornament -->
+     <div class="flex items-center gap-4 mb-6 slide-up" style="animation-delay: 0.1s;">
+      <div class="ornament-line w-20"></div><i data-lucide="flame" class="w-4 h-4 text-red-500"></i> <span class="cinzel text-xs tracking-[0.4em] text-amber-400/80">NEO ORIENTAL FANTASY</span> <i data-lucide="flame" class="w-4 h-4 text-red-500"></i>
+      <div class="ornament-line w-20"></div>
+     </div><!-- Main title with SVG warrior -->
+     <div class="relative mb-2 slide-up" style="animation-delay: 0.2s;">
+      <div class="flex items-center justify-center gap-4 mb-2">
+       <div class="ornament-line w-24"></div>
+      </div>
+      <h1 id="game-title" class="game-title game-title-text text-9xl md:text-10xl lg:text-11xl font-black text-amber-50 relative z-10">TANTRA<span class="text-red-600"> X</span></h1>
+      <div class="flex items-center justify-center gap-4 mt-2">
+       <div class="ornament-line w-24"></div>
+      </div>
+     </div><!-- Region banner -->
+     <div class="slide-up mb-6" style="animation-delay: 0.4s;"><span class="cinzel text-2xl md:text-3xl tracking-[0.5em] font-bold text-red-500 text-shadow-strong" id="region-title">PHILIPPINES</span>
+     </div><!-- Tagline -->
+     <h2 id="tagline" class="cinzel italic text-xl md:text-2xl text-amber-200/90 mb-4 slide-up text-shadow-strong" style="animation-delay: 0.6s;">LEGENDS AWAKENED</h2><!-- Description -->
+     <p id="description" class="crimson text-base md:text-lg text-amber-100/70 max-w-2xl leading-relaxed mb-10 slide-up" style="animation-delay: 0.8s;">Embark on an epic journey through the cursed lands of ancient myth. Battle legendary demons, forge powerful weapons, and write your legend in blood and steel.</p><!-- Master Points Schedule Section -->
+     <div class="mt-20 slide-up" style="animation-delay: 1.1s;">
+      <h3 class="cinzel text-2xl md:text-3xl font-bold text-amber-50 tracking-wider text-center mb-12">KRUMA X2 MASTER POINTS</h3>
+      <h4 class="cinzel text-lg md:text-xl font-bold text-red-400 tracking-wider text-center mb-8">SCHEDULES:</h4>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16"><!-- Morning Schedule -->
+       <div class="class-card rounded-lg p-6 text-center border border-red-900/40 hover:border-red-600/60 transition-all">
+        <div class="flex items-center justify-center gap-2 mb-4"><i data-lucide="sun" class="w-5 h-5 text-yellow-500"></i>
+         <h5 class="cinzel text-lg font-bold text-amber-300 tracking-widest">MORNING</h5>
+        </div>
+        <p class="crimson text-base text-amber-100 mb-4 font-bold">10:00 AM - 12:00 PM</p>
+        <div class="bg-slate-800/40 rounded p-4 border border-red-900/30">
+         <p class="crimson text-xs text-amber-200/60 mb-1">TIME UNTIL START:</p>
+         <p id="timer-morning" class="cinzel text-2xl font-bold text-red-400 tracking-wider">--:--:--</p>
+        </div>
+       </div><!-- Afternoon Schedule -->
+       <div class="class-card rounded-lg p-6 text-center border border-red-900/40 hover:border-red-600/60 transition-all">
+        <div class="flex items-center justify-center gap-2 mb-4"><i data-lucide="sun" class="w-5 h-5 text-orange-500"></i>
+         <h5 class="cinzel text-lg font-bold text-amber-300 tracking-widest">AFTERNOON</h5>
+        </div>
+        <p class="crimson text-base text-amber-100 mb-4 font-bold">3:00 PM - 5:00 PM</p>
+        <div class="bg-slate-800/40 rounded p-4 border border-red-900/30">
+         <p class="crimson text-xs text-amber-200/60 mb-1">TIME UNTIL START:</p>
+         <p id="timer-afternoon" class="cinzel text-2xl font-bold text-red-400 tracking-wider">--:--:--</p>
+        </div>
+       </div><!-- Evening Schedule -->
+       <div class="class-card rounded-lg p-6 text-center border border-red-900/40 hover:border-red-600/60 transition-all">
+        <div class="flex items-center justify-center gap-2 mb-4"><i data-lucide="moon" class="w-5 h-5 text-blue-500"></i>
+         <h5 class="cinzel text-lg font-bold text-amber-300 tracking-widest">EVENING</h5>
+        </div>
+        <p class="crimson text-base text-amber-100 mb-4 font-bold">8:00 PM - 11:00 PM</p>
+        <div class="bg-slate-800/40 rounded p-4 border border-red-900/30">
+         <p class="crimson text-xs text-amber-200/60 mb-1">TIME UNTIL START:</p>
+         <p id="timer-evening" class="cinzel text-2xl font-bold text-red-400 tracking-wider">--:--:--</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Fortress War Section -->
+     <div class="mt-8 slide-up" style="animation-delay: 1.2s;">
+      <div class="max-w-3xl mx-auto">
+       <div class="class-card rounded-lg p-8 border border-red-900/40 relative">
+        <div class="flex items-center justify-center gap-3 mb-6">
+         <i data-lucide="castle" class="w-6 h-6 text-red-500"></i>
+         <h3 class="cinzel text-2xl md:text-3xl font-bold text-amber-50 tracking-wider">FORTRESS WAR</h3><i data-lucide="castle" class="w-6 h-6 text-red-500"></i>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+         <!-- Schedule -->
+         <div class="text-center">
+          <p class="crimson text-xs text-amber-200/60 mb-2">SCHEDULE</p>
+          <p class="cinzel text-xl font-bold text-amber-300 tracking-widest">EVERY SUNDAY</p>
+          <p class="cinzel text-lg font-bold text-red-400 tracking-widest">11:00 PM</p>
+         </div><!-- Current Holder -->
+         <div class="text-center border-l border-r border-red-900/30">
+          <p class="crimson text-xs text-amber-200/60 mb-2">FORTRESS HOLDER</p>
+          <p class="cinzel text-xl font-bold text-blue-300 tracking-widest">SINNER</p>
+         </div><!-- Status -->
+         <div class="text-center">
+          <p class="crimson text-xs text-amber-200/60 mb-2">STATUS</p>
+          <div class="inline-block px-4 py-2 rounded bg-emerald-900/40 border border-emerald-600/60">
+           <p class="cinzel text-sm font-bold text-emerald-300 tracking-widest">HELD</p>
+          </div>
+         </div>
+        </div><!-- Fortress Location -->
+        <div class="mt-6 pt-6 border-t border-red-900/30 text-center">
+         <p class="crimson text-xs text-amber-200/60 mb-3">FORTRESS TO FIGHT/DEFEND</p>
+         <p class="cinzel text-2xl font-bold text-white tracking-widest">AHB FORTRESS</p>
+         <p class="crimson text-sm text-amber-200/70 mt-2">Gather your guild and prepare for battle!</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- CTA Buttons --> <!-- CTA Buttons -->
+     <div class="flex flex-col items-center gap-8 slide-up mt-24" style="animation-delay: 1.3s;">
+      <h3 id="join-community" class="cinzel text-2xl md:text-3xl font-bold text-amber-50 tracking-wider">JOIN OUR COMMUNITY</h3>
+      <div class="flex flex-col sm:flex-row gap-6">
+       <a href="https://www.facebook.com/tantraxphilippines" target="_blank" rel="noopener noreferrer" class="btn-facebook px-10 py-4 rounded cinzel text-base font-bold tracking-widest text-white flex items-center justify-center gap-3 hover:scale-105 transition-transform"> <i data-lucide="facebook" class="w-5 h-5"></i> <span>FACEBOOK</span> </a> <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="btn-discord px-10 py-4 rounded cinzel text-base font-bold tracking-widest text-white flex items-center justify-center gap-3 hover:scale-105 transition-transform"> <i data-lucide="message-circle" class="w-5 h-5"></i> <span>DISCORD</span> </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- DONATION MODAL -->
+   <div id="donation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm overflow-y-auto py-12">
+    <div class="w-full max-w-sm mx-auto px-6">
+     <div class="bg-gradient-to-br from-slate-900 to-black rounded-lg border border-red-900/40 p-6 relative"><!-- Close button --> <button onclick="closeDonationPage()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full border border-red-900/40 hover:border-red-600 transition-colors"> <i data-lucide="x" class="w-5 h-5 text-amber-200"></i> </button> <!-- Header -->
+      <div class="text-center mb-8">
+       <div class="flex items-center justify-center gap-3 mb-4"><i data-lucide="gift" class="w-5 h-5 text-red-500"></i>
+        <h2 class="cinzel text-2xl font-black text-amber-50 tracking-wider">SUPPORT</h2><i data-lucide="gift" class="w-5 h-5 text-red-500"></i>
+       </div>
+       <p class="crimson text-sm text-amber-200/70">Your generous contribution fuels the realm.</p>
+      </div><!-- Donation Form -->
+      <form id="donation-form" onsubmit="handleDonationSubmit(event)" class="space-y-4"><!-- Full Name -->
+       <div><label for="donor-name" class="block cinzel text-xs font-bold text-amber-300 mb-1 tracking-widest">FULL NAME</label> <input type="text" id="donor-name" required class="w-full px-3 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-sm text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Your name">
+       </div><!-- Email Address -->
+       <div><label for="donor-email" class="block cinzel text-xs font-bold text-amber-300 mb-1 tracking-widest">EMAIL</label> <input type="email" id="donor-email" required class="w-full px-3 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-sm text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="your@email.com">
+       </div><!-- Username -->
+       <div><label for="donor-username" class="block cinzel text-xs font-bold text-amber-300 mb-1 tracking-widest">USERNAME</label> <input type="text" id="donor-username" required class="w-full px-3 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-sm text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Character name">
+       </div><!-- Donation Amount -->
+       <div><label for="donation-amount" class="block cinzel text-xs font-bold text-amber-300 mb-1 tracking-widest">AMOUNT</label>
+        <div class="relative"><span class="absolute left-3 top-2 cinzel text-amber-300 font-bold text-sm">₱</span> <input type="number" id="donation-amount" required min="1" step="0.01" class="w-full pl-6 pr-3 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-sm text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="0.00">
+        </div>
+       </div><!-- Additional Notes -->
+       <div><label for="donor-notes" class="block cinzel text-xs font-bold text-amber-300 mb-1 tracking-widest">MESSAGE</label> <textarea id="donor-notes" rows="2" class="w-full px-3 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-sm text-amber-100 placeholder-amber-200/30 transition-colors resize-none" placeholder="Optional message..."></textarea>
+       </div><!-- Receipt Attachment -->
+       <div><label for="receipt-file" class="block cinzel text-xs font-bold text-amber-300 mb-1 tracking-widest">RECEIPT</label> <input type="file" id="receipt-file" accept="image/*,.pdf" class="w-full px-3 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-xs text-amber-100 transition-colors file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-bold file:bg-red-900/40 file:text-amber-100 file:cursor-pointer hover:file:bg-red-900/60">
+       </div><!-- Submit Button --> <button type="submit" class="w-full btn-primary px-4 py-3 rounded cinzel text-sm font-bold tracking-widest text-amber-50 flex items-center justify-center gap-2 mt-6"> <i data-lucide="send" class="w-4 h-4"></i> <span>SUBMIT</span> </button>
+      </form><!-- Progress Bar (hidden by default) -->
+      <div id="progress-container" class="hidden mt-6">
+       <div class="flex items-center justify-between mb-2"><span class="cinzel text-xs font-bold text-amber-300 tracking-widest">PROCESSING</span> <span id="progress-percent" class="cinzel text-xs font-bold text-red-400">0%</span>
+       </div>
+       <div class="w-full h-1 rounded-full bg-slate-800/60 border border-red-900/40 overflow-hidden">
+        <div id="progress-bar" class="h-full bg-gradient-to-r from-red-900 via-red-600 to-red-500 transition-all duration-300" style="width: 0%"></div>
+       </div>
+       <p id="progress-text" class="crimson text-xs text-amber-200/70 text-center mt-2">Processing...</p>
+      </div><!-- Success Message (hidden by default) -->
+      <div id="success-message" class="hidden mt-6 p-4 rounded-lg border border-emerald-600/40 bg-emerald-900/20">
+       <div class="flex gap-2 items-start"><i data-lucide="check-circle" class="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+        <div>
+         <h3 class="cinzel text-sm font-bold text-emerald-300 mb-1">THANK YOU</h3>
+         <div class="crimson text-xs text-emerald-200/80 mb-3">
+          Your donation has been recorded!
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <script>
+    // Ember particles
+    function createEmbers() {
+      const container = document.getElementById('embers-container');
+      if (!container) return;
+      
+      for (let i = 0; i < 40; i++) {
+        const ember = document.createElement('div');
+        ember.style.cssText = `
+          position: absolute;
+          width: ${Math.random() * 4 + 2}px;
+          height: ${Math.random() * 4 + 2}px;
+          background: radial-gradient(circle, #ff6b35, #dc2626);
+          border-radius: 50%;
+          box-shadow: 0 0 ${Math.random() * 15 + 10}px #ff6b35;
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          opacity: ${Math.random() * 0.7 + 0.3};
+          animation: emberFloat ${Math.random() * 4 + 6}s infinite ease-in;
+          animation-delay: ${Math.random() * 2}s;
+        `;
+        container.appendChild(ember);
+      }
+    }
+
+    // Smoke particles
+    function createSmoke() {
+      const container = document.getElementById('smoke-container');
+      if (!container) return;
+      
+      for (let i = 0; i < 30; i++) {
+        const smoke = document.createElement('div');
+        smoke.style.cssText = `
+          position: absolute;
+          width: ${Math.random() * 60 + 40}px;
+          height: ${Math.random() * 60 + 40}px;
+          background: radial-gradient(circle, rgba(139, 0, 0, 0.4), transparent);
+          border-radius: 50%;
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          opacity: ${Math.random() * 0.4 + 0.2};
+          animation: smokeRise ${Math.random() * 6 + 8}s infinite ease-out;
+          animation-delay: ${Math.random() * 3}s;
+          filter: blur(${Math.random() * 8 + 4}px);
+        `;
+        container.appendChild(smoke);
+      }
+    }
+
+    // Floating orbs (new particle type)
+    function createFloatingOrbs() {
+      const container = document.getElementById('embers-container');
+      if (!container) return;
+      
+      for (let i = 0; i < 25; i++) {
+        const orb = document.createElement('div');
+        const size = Math.random() * 8 + 4;
+        orb.style.cssText = `
+          position: absolute;
+          width: ${size}px;
+          height: ${size}px;
+          background: radial-gradient(circle at 30% 30%, rgba(220, 100, 100, 0.8), rgba(139, 0, 0, 0.3));
+          border-radius: 50%;
+          box-shadow: 0 0 ${size * 1.5}px rgba(220, 38, 38, 0.6), inset -2px -2px 5px rgba(0, 0, 0, 0.5);
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          opacity: ${Math.random() * 0.6 + 0.2};
+          animation: orbFloat ${Math.random() * 8 + 10}s infinite ease-in-out;
+          animation-delay: ${Math.random() * 4}s;
+        `;
+        container.appendChild(orb);
+      }
+    }
+
+    // Energy streaks (flowing lines)
+    function createEnergyStreaks() {
+      const container = document.getElementById('smoke-container');
+      if (!container) return;
+      
+      for (let i = 0; i < 15; i++) {
+        const streak = document.createElement('div');
+        streak.style.cssText = `
+          position: absolute;
+          width: ${Math.random() * 150 + 100}px;
+          height: ${Math.random() * 2 + 1}px;
+          background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.6), transparent);
+          left: ${Math.random() * 100}%;
+          top: ${Math.random() * 100}%;
+          opacity: ${Math.random() * 0.5 + 0.1};
+          animation: streakFlow ${Math.random() * 6 + 5}s infinite linear;
+          animation-delay: ${Math.random() * 3}s;
+          filter: blur(2px);
+          transform: rotate(${Math.random() * 360}deg);
+        `;
+        container.appendChild(streak);
+      }
+    }
+
+    // Add animations
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes emberFloat {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-200px) translateX(${Math.random() * 100 - 50}px);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes smokeRise {
+        0% {
+          transform: translateY(0) translateX(0) scale(0.8);
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(-300px) translateX(${Math.random() * 80 - 40}px) scale(1.2);
+          opacity: 0;
+        }
+      }
+
+      @keyframes orbFloat {
+        0%, 100% {
+          transform: translateY(0) translateX(0) scale(1);
+          opacity: 0.6;
+        }
+        25% {
+          transform: translateY(-80px) translateX(60px) scale(1.1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: translateY(-150px) translateX(0) scale(0.9);
+          opacity: 0.4;
+        }
+        75% {
+          transform: translateY(-100px) translateX(-60px) scale(1.05);
+          opacity: 0.7;
+        }
+      }
+
+      @keyframes streakFlow {
+        0% {
+          transform: translateX(0) translateY(0);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateX(200px) translateY(100px);
+          opacity: 0;
+        }
+      }
+
+      @keyframes timerBlink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+
+      .timer-blinking {
+        animation: timerBlink 0.8s ease-in-out infinite;
+      }
+    `;
+    document.head.appendChild(style);
+
+    createEmbers();
+    createSmoke();
+    createFloatingOrbs();
+    createEnergyStreaks();
+
+    // Master Points Schedule Timers
+    function updateScheduleTimers() {
+      const now = new Date();
+      const schedules = [
+        { id: 'timer-morning', hour: 10, minute: 0 },
+        { id: 'timer-afternoon', hour: 15, minute: 0 },
+        { id: 'timer-evening', hour: 20, minute: 0 }
+      ];
+
+      schedules.forEach(schedule => {
+        let scheduledTime = new Date();
+        scheduledTime.setHours(schedule.hour, schedule.minute, 0, 0);
+
+        // If the time has already passed today, count to tomorrow
+        if (now > scheduledTime) {
+          scheduledTime.setDate(scheduledTime.getDate() + 1);
+        }
+
+        const timeUntil = scheduledTime - now;
+        const hours = Math.floor(timeUntil / (1000 * 60 * 60));
+        const minutes = Math.floor((timeUntil % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeUntil % (1000 * 60)) / 1000);
+
+        const timerEl = document.getElementById(schedule.id);
+        if (timerEl) {
+          timerEl.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          
+          // Add blinking effect if within 5 minutes and event hasn't started
+          if (timeUntil <= 5 * 60 * 1000 && timeUntil > 0) {
+            timerEl.classList.add('timer-blinking');
+          } else {
+            timerEl.classList.remove('timer-blinking');
+          }
+        }
+      });
+    }
+
+    // Update timers immediately and every second
+    updateScheduleTimers();
+    setInterval(updateScheduleTimers, 1000);
+    function navigateTo(page, e) {
+      if (e) e.preventDefault();
+      
+      // Close any open modals
+      const donationModal = document.getElementById('donation-modal');
+      if (donationModal) donationModal.classList.add('hidden');
+      
+      if (page === 'rankings') showRankingsPage();
+      else if (page === 'downloads') showDownloadsPage();
+      else if (page === 'home') backToHome(e || {preventDefault: () => {}});
+      else if (page === 'donation') showDonationPage(e || {preventDefault: () => {}});
+    }
+
+    // Rankings page function
+    function showRankingsPage() {
+      // Hide main content and other pages
+      document.querySelector('.hero-bg').style.display = 'none';
+      const downloadsPage = document.getElementById('downloads-page');
+      const authPage = document.getElementById('auth-page');
+      const registerPage = document.getElementById('register-page');
+      if (downloadsPage) downloadsPage.style.display = 'none';
+      if (authPage) authPage.style.display = 'none';
+      if (registerPage) registerPage.style.display = 'none';
+      
+      // Create and show rankings page
+      let rankingsPage = document.getElementById('rankings-page');
+      if (!rankingsPage) {
+        rankingsPage = document.createElement('div');
+        rankingsPage.id = 'rankings-page';
+        rankingsPage.className = 'app-wrapper scrollbar-styled';
+        rankingsPage.style.cssText = 'background: #0a0304; color: #e8d5b0;';
+        rankingsPage.innerHTML = `
+          <!-- Navigation -->
+          <nav class="nav-wrap fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+              <div></div>
+              <div class="hidden md:flex items-center gap-8 cinzel text-sm tracking-widest text-amber-200/80">
+                <a onclick="navigateTo('home', event)" class="nav-link hover:text-red-400">HOME</a>
+                <a onclick="navigateTo('rankings', event)" class="nav-link hover:text-red-400">RANKINGS</a>
+                <a onclick="navigateTo('donation', event)" class="nav-link hover:text-red-400">DONATION</a>
+                <a onclick="navigateTo('downloads', event)" class="nav-link hover:text-red-400">DOWNLOADS</a>
+              </div>
+              <button onclick="showAuthPage(event)" class="btn-secondary px-5 py-2 rounded cinzel text-xs tracking-widest text-amber-100"> LOGIN/REGISTER </button>
+            </div>
+          </nav>
+
+          <!-- RANKINGS SECTION FULL PAGE -->
+          <section class="relative min-h-screen py-24 px-6 md:px-12 overflow-hidden" style="background: linear-gradient(180deg, #0a0304 0%, #000000 50%, #0a0304 100%); margin-top: 80px;">
+            <div class="max-w-7xl mx-auto">
+              <!-- Header -->
+              <div class="text-center mb-16">
+                <div class="flex items-center justify-center gap-4 mb-5">
+                  <div class="ornament-line w-20"></div>
+                  <i data-lucide="crown" class="w-6 h-6 text-red-500"></i>
+                  <div class="ornament-line w-20"></div>
+                </div>
+                <h1 class="game-title text-5xl md:text-7xl font-black text-amber-50 mb-4 tracking-wider">TOP <span class="text-red-600">WARRIORS</span></h1>
+                <p class="crimson italic text-xl text-amber-200/70">The mightiest souls of the realm</p>
+              </div>
+
+              <!-- Filter Controls -->
+              <div class="flex justify-center gap-6 mb-12 flex-wrap items-center">
+                <!-- Master Points Filter -->
+                <div class="flex items-center gap-3">
+                  <label class="cinzel text-sm font-bold text-white tracking-widest">MASTER POINTS:</label>
+                  <select id="master-points-filter" onchange="filterByMasterPoints(this.value)" class="px-4 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none cinzel text-xs tracking-widest text-amber-100 transition-colors">
+                    <option value="all">ALL WARRIORS</option>
+                    <option value="monthly">MONTHLY RANKING</option>
+                    <option value="ashram">ASHRAM RANKING</option>
+                  </select>
+                </div>
+
+                <!-- God Filter -->
+                <div class="flex items-center gap-3">
+                  <label class="cinzel text-sm font-bold text-white tracking-widest">GOD:</label>
+                  <select id="god-filter" onchange="filterByGod(this.value)" class="px-4 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none cinzel text-xs tracking-widest text-amber-100 transition-colors">
+                    <option value="">ALL GODS</option>
+                    <option value="shiva">SHIVA</option>
+                    <option value="brahma">BRAHMA</option>
+                    <option value="vishnu">VISHNU</option>
+                  </select>
+                </div>
+
+                <!-- Tribe Filter -->
+                <div class="flex items-center gap-3">
+                  <label class="cinzel text-sm font-bold text-white tracking-widest">TRIBE:</label>
+                  <select id="tribe-filter" onchange="filterByTribe(this.value)" class="px-4 py-2 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none cinzel text-xs tracking-widest text-amber-100 transition-colors">
+                    <option value="">ALL TRIBES</option>
+                    <option value="asura">ASURA</option>
+                    <option value="rashasa">RASHASA</option>
+                    <option value="deva">DEVA</option>
+                    <option value="garuda">GARUDA</option>
+                    <option value="yaksa">YAKSA</option>
+                    <option value="gandharva">GANDHARVA</option>
+                    <option value="naga">NAGA</option>
+                    <option value="kimnara">KIMNARA</option>
+                  </select>
+                </div>
+
+
+              </div>
+
+              <!-- Warriors Grid -->
+              <div id="warriors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Warriors will be populated here -->
+              </div>
+            </div>
+          </section>
+
+          <!-- DONATION MODAL (reused) -->
+          <div id="donation-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm overflow-y-auto py-12">
+            <div class="w-full max-w-2xl mx-auto px-6">
+              <div class="bg-gradient-to-br from-slate-900 to-black rounded-lg border border-red-900/40 p-8 relative">
+                <button onclick="closeDonationPage()" class="absolute top-6 right-6 w-8 h-8 flex items-center justify-center rounded-full border border-red-900/40 hover:border-red-600 transition-colors"> <i data-lucide="x" class="w-5 h-5 text-amber-200"></i> </button>
+                <div class="text-center mb-10">
+                  <div class="flex items-center justify-center gap-3 mb-4">
+                    <i data-lucide="gift" class="w-6 h-6 text-red-500"></i>
+                    <h2 class="cinzel text-4xl font-black text-amber-50 tracking-wider">SUPPORT THE COMMUNITY</h2>
+                    <i data-lucide="gift" class="w-6 h-6 text-red-500"></i>
+                  </div>
+                  <p class="crimson text-lg text-amber-200/70">Your generous contribution fuels the darkness. Send a receipt to our treasury.</p>
+                </div>
+                <form id="donation-form" onsubmit="handleDonationSubmit(event)" class="space-y-6">
+                  <div>
+                    <label for="donor-name" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">FULL NAME</label>
+                    <input type="text" id="donor-name" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Enter your full name">
+                  </div>
+                  <div>
+                    <label for="donor-email" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">EMAIL ADDRESS</label>
+                    <input type="email" id="donor-email" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="your@email.com">
+                  </div>
+                  <div>
+                    <label for="donor-username" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">IN-GAME USERNAME</label>
+                    <input type="text" id="donor-username" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Your character name">
+                  </div>
+                  <div>
+                    <label for="donation-amount" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">DONATION AMOUNT</label>
+                    <div class="relative">
+                      <span class="absolute left-4 top-3 cinzel text-amber-300 font-bold">₱</span> <input type="number" id="donation-amount" required min="1" step="0.01" class="w-full pl-8 pr-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="0.00">
+                    </div>
+                  </div>
+                  <div>
+                    <label for="donor-notes" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">ADDITIONAL NOTES</label>
+                    <textarea id="donor-notes" rows="4" class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors resize-none" placeholder="Special message for the GM..."></textarea>
+                  </div>
+                  <div>
+                    <label for="receipt-file" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">ATTACH RECEIPT</label>
+                    <div class="relative">
+                      <input type="file" id="receipt-file" accept="image/*,.pdf" class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 transition-colors file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-bold file:bg-red-900/40 file:text-amber-100 file:cursor-pointer hover:file:bg-red-900/60">
+                    </div>
+                    <p class="crimson text-xs text-amber-200/50 mt-2">Supported: JPG, PNG, PDF (Max 5MB)</p>
+                  </div>
+                  <button type="submit" class="w-full btn-primary px-6 py-4 rounded cinzel text-base font-bold tracking-widest text-amber-50 flex items-center justify-center gap-3 mt-8">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                    <span>SUBMIT DONATION</span>
+                  </button>
+                </form>
+                <div id="progress-container" class="hidden mt-8">
+                  <div class="flex items-center justify-between mb-3">
+                    <span class="cinzel text-sm font-bold text-amber-300 tracking-widest">PROCESSING</span>
+                    <span id="progress-percent" class="cinzel text-sm font-bold text-red-400">0%</span>
+                  </div>
+                  <div class="w-full h-2 rounded-full bg-slate-800/60 border border-red-900/40 overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-gradient-to-r from-red-900 via-red-600 to-red-500 transition-all duration-300" style="width: 0%"></div>
+                  </div>
+                  <p id="progress-text" class="crimson text-sm text-amber-200/70 text-center mt-3">Sending your contribution to the realm...</p>
+                </div>
+                <div id="success-message" class="hidden mt-8 p-6 rounded-lg border border-emerald-600/40 bg-emerald-900/20">
+                  <div class="flex gap-3 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1"></i>
+                    <div>
+                      <h3 class="cinzel text-lg font-bold text-emerald-300 mb-2">DONATION RECEIVED</h3>
+                      <div class="crimson text-sm text-emerald-200/80 mb-4">
+                        Thank you, noble warrior! Your contribution has been recorded and the realm overlords have been notified. 
+                        <p></p><button onclick="showReceiptConfirmation()" class="btn-secondary px-6 py-2 rounded cinzel text-xs font-bold tracking-widest text-amber-100"> VIEW RECEIPT </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(rankingsPage);
+    function handleBackgroundUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      // Validate file size (max 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File is too large. Maximum size is 5MB.');
+        return;
+      }
+
+      // Create FileReader to read the image
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const imageData = e.target.result;
+        
+        // Apply background to all app-wrapper elements
+        const wrappers = document.querySelectorAll('.app-wrapper');
+        wrappers.forEach(wrapper => {
+          wrapper.style.backgroundImage = `url('${imageData}')`;
+        });
+
+        // Store in localStorage for persistence
+        localStorage.setItem('tantraXBgImage', imageData);
+      };
+
+      reader.readAsDataURL(file);
+      
+      // Reset input
+      event.target.value = '';
+    }
+
+    // Load saved background on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedBg = localStorage.getItem('tantraXBgImage');
+      if (savedBg) {
+        const wrappers = document.querySelectorAll('.app-wrapper');
+        wrappers.forEach(wrapper => {
+          wrapper.style.backgroundImage = `url('${savedBg}')`;
+        });
+      }
+    });
+        populateWarriors();
+      } else {
+        rankingsPage.style.display = 'block';
+      }
+    }
+
+    function backToHome(e) {
+      if (e && e.preventDefault) e.preventDefault();
+      const rankingsPage = document.getElementById('rankings-page');
+      const downloadsPage = document.getElementById('downloads-page');
+      const authPage = document.getElementById('auth-page');
+      const registerPage = document.getElementById('register-page');
+      if (rankingsPage) rankingsPage.remove();
+      if (downloadsPage) downloadsPage.remove();
+      if (authPage) authPage.remove();
+      if (registerPage) registerPage.remove();
+      
+      // Hide donation modal but keep it for reuse
+      const donationModal = document.getElementById('donation-modal');
+      if (donationModal) donationModal.classList.add('hidden');
+      
+      document.querySelector('.hero-bg').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    // Warriors data - updated with Gods and Tribes
+    const allWarriors = [
+      { rank: 1, name: 'Sadie', level: 999, god: 'shiva', tribe: 'asura', ashram: 'ashram', power: 1250450, icon: 'crown', color: 'red' },
+      { rank: 2, name: 'PUSE', level: 998, god: 'brahma', tribe: 'deva', ashram: '', power: 1180320, icon: 'crown', color: 'yellow' },
+      { rank: 3, name: '!', level: 997, god: 'vishnu', tribe: 'garuda', ashram: 'ashram', power: 1095680, icon: 'chess-rook', color: 'red' },
+      { rank: 4, name: 'BETASHYT', level: 996, god: 'shiva', tribe: 'naga', ashram: '', power: 1045220, icon: 'none', color: 'red' },
+      { rank: 5, name: 'Sven', level: 995, god: 'brahma', tribe: 'yaksa', ashram: 'ashram', power: 989450, icon: 'none', color: 'red' },
+      { rank: 6, name: 'INPLAY', level: 994, god: 'vishnu', tribe: 'rashasa', ashram: '', power: 945670, icon: 'none', color: 'red' },
+      { rank: 7, name: 'GreenFlame', level: 993, god: 'shiva', tribe: 'gandharva', ashram: 'ashram', power: 925380, icon: 'none', color: 'blue' },
+      { rank: 8, name: '---Delaneyberi---', level: 992, god: 'brahma', tribe: 'kimnara', ashram: '', power: 895420, icon: 'none', color: 'blue' },
+      { rank: 9, name: 'TELSTRA', level: 991, god: 'vishnu', tribe: 'asura', ashram: 'ashram', power: 875930, icon: 'none', color: 'yellow' },
+      { rank: 10, name: 'Nhoj', level: 990, god: 'shiva', tribe: 'deva', ashram: '', power: 865240, icon: 'none', color: 'blue' },
+      { rank: 11, name: 'Valorian', level: 989, god: 'brahma', tribe: 'garuda', ashram: 'ashram', power: 855120, icon: 'none', color: 'red' },
+      { rank: 12, name: 'ShadowBlade', level: 988, god: 'vishnu', tribe: 'naga', ashram: '', power: 842880, icon: 'none', color: 'yellow' },
+      { rank: 13, name: 'Inferno', level: 987, god: 'shiva', tribe: 'yaksa', ashram: '', power: 831650, icon: 'none', color: 'red' },
+      { rank: 14, name: 'CrimsonHeart', level: 986, god: 'brahma', tribe: 'rashasa', ashram: 'ashram', power: 820420, icon: 'none', color: 'red' },
+      { rank: 15, name: 'VoidWalker', level: 985, god: 'vishnu', tribe: 'gandharva', ashram: '', power: 809180, icon: 'none', color: 'blue' },
+      { rank: 16, name: 'SilverStorm', level: 984, god: 'shiva', tribe: 'kimnara', ashram: 'ashram', power: 797950, icon: 'none', color: 'blue' },
+      { rank: 17, name: 'DarkPhoenix', level: 983, god: 'brahma', tribe: 'asura', ashram: '', power: 786720, icon: 'none', color: 'red' },
+      { rank: 18, name: 'IceKing', level: 982, god: 'vishnu', tribe: 'deva', ashram: 'ashram', power: 775490, icon: 'none', color: 'blue' },
+      { rank: 19, name: 'ThunderLord', level: 981, god: 'shiva', tribe: 'garuda', ashram: '', power: 764260, icon: 'none', color: 'yellow' },
+      { rank: 20, name: 'SoulReaper', level: 980, god: 'brahma', tribe: 'naga', ashram: 'ashram', power: 753030, icon: 'none', color: 'red' },
+      { rank: 21, name: 'EchoKnight', level: 979, god: 'vishnu', tribe: 'yaksa', ashram: '', power: 741800, icon: 'none', color: 'blue' },
+      { rank: 22, name: 'NightBringer', level: 978, god: 'shiva', tribe: 'rashasa', ashram: 'ashram', power: 730570, icon: 'none', color: 'blue' },
+      { rank: 23, name: 'SunSeeker', level: 977, god: 'brahma', tribe: 'gandharva', ashram: '', power: 719340, icon: 'none', color: 'yellow' },
+      { rank: 24, name: 'StormBringer', level: 976, god: 'vishnu', tribe: 'kimnara', ashram: 'ashram', power: 708110, icon: 'none', color: 'blue' },
+      { rank: 25, name: 'VenomFang', level: 975, god: 'shiva', tribe: 'asura', ashram: '', power: 696880, icon: 'none', color: 'red' },
+      { rank: 26, name: 'NovaBlast', level: 974, god: 'brahma', tribe: 'deva', ashram: 'ashram', power: 685650, icon: 'none', color: 'yellow' },
+      { rank: 27, name: 'MoonShadow', level: 973, god: 'vishnu', tribe: 'garuda', ashram: '', power: 674420, icon: 'none', color: 'blue' },
+      { rank: 28, name: 'FrostByte', level: 972, god: 'shiva', tribe: 'naga', ashram: 'ashram', power: 663190, icon: 'none', color: 'blue' },
+      { rank: 29, name: 'InfernoWrath', level: 971, god: 'brahma', tribe: 'yaksa', ashram: '', power: 651960, icon: 'none', color: 'red' },
+      { rank: 30, name: 'CelestialOne', level: 970, god: 'vishnu', tribe: 'rashasa', ashram: 'ashram', power: 640730, icon: 'none', color: 'yellow' },
+    ];
+
+    function populateWarriors() {
+      const grid = document.getElementById('warriors-grid');
+      if (!grid) return;
+      grid.innerHTML = allWarriors.map(w => `
+        <div class="class-card rounded-lg p-6 text-center relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 px-3 py-1 rounded-full">
+            <span class="cinzel text-xs font-bold text-amber-50">RANK ${w.rank}</span>
+          </div>
+          ${w.rank <= 3 ? `<div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-${w.color}-600 to-${w.color}-900 border-2 border-${w.color}-500 flex items-center justify-center">
+            <i data-lucide="${w.icon}" class="w-8 h-8 text-${w.color}-300"></i>
+          </div>` : ''}
+          <h3 class="cinzel text-lg font-bold text-${w.color}-300 mb-1 tracking-widest">${w.name}</h3>
+          <p class="crimson text-xs text-amber-200/60">Level ${w.level}</p>
+          <p class="crimson text-xs text-amber-200/60">God: ${w.god.charAt(0).toUpperCase() + w.god.slice(1)}</p>
+          <p class="crimson text-xs text-amber-200/60">Tribe: ${w.tribe.charAt(0).toUpperCase() + w.tribe.slice(1)}</p>
+          <div class="mt-3 pt-3 border-t border-red-900/30">
+            <p class="crimson text-sm text-amber-200/70">${w.power.toLocaleString()} Power</p>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function filterRankings(filter) {
+      // Reset dropdowns when clicking Master Points
+      document.getElementById('god-filter').value = '';
+      document.getElementById('tribe-filter').value = '';
+      
+      const grid = document.getElementById('warriors-grid');
+      if (!grid) return;
+      grid.innerHTML = allWarriors.map(w => `
+        <div class="class-card rounded-lg p-6 text-center relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 px-3 py-1 rounded-full">
+            <span class="cinzel text-xs font-bold text-amber-50">RANK ${w.rank}</span>
+          </div>
+          ${w.rank <= 3 ? `<div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-${w.color}-600 to-${w.color}-900 border-2 border-${w.color}-500 flex items-center justify-center">
+            <i data-lucide="${w.icon}" class="w-8 h-8 text-${w.color}-300"></i>
+          </div>` : ''}
+          <h3 class="cinzel text-lg font-bold text-${w.color}-300 mb-1 tracking-widest">${w.name}</h3>
+          <p class="crimson text-xs text-amber-200/60">Level ${w.level}</p>
+          <p class="crimson text-xs text-amber-200/60">God: ${w.god.charAt(0).toUpperCase() + w.god.slice(1)}</p>
+          <p class="crimson text-xs text-amber-200/60">Tribe: ${w.tribe.charAt(0).toUpperCase() + w.tribe.slice(1)}</p>
+          <div class="mt-3 pt-3 border-t border-red-900/30">
+            <p class="crimson text-sm text-amber-200/70">${w.power.toLocaleString()} Power</p>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function filterByMasterPoints(type) {
+      // Reset god and tribe filters
+      document.getElementById('god-filter').value = '';
+      document.getElementById('tribe-filter').value = '';
+
+      const grid = document.getElementById('warriors-grid');
+      if (!grid) return;
+
+      let filtered = allWarriors;
+
+      if (type === 'monthly') {
+        // Sort all warriors by power for monthly ranking
+        filtered = [...allWarriors].sort((a, b) => b.power - a.power);
+      } else if (type === 'ashram') {
+        // Group by ashram (those with ashram first, then those without)
+        const withAshram = allWarriors.filter(w => w.ashram).sort((a, b) => b.power - a.power);
+        const withoutAshram = allWarriors.filter(w => !w.ashram).sort((a, b) => b.power - a.power);
+        filtered = [...withAshram, ...withoutAshram];
+      }
+
+      grid.innerHTML = filtered.map((w, idx) => `
+        <div class="class-card rounded-lg p-6 text-center relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 px-3 py-1 rounded-full">
+            <span class="cinzel text-xs font-bold text-amber-50">RANK ${idx + 1}</span>
+          </div>
+          ${idx < 3 ? `<div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-${w.color}-600 to-${w.color}-900 border-2 border-${w.color}-500 flex items-center justify-center">
+            <i data-lucide="${w.icon}" class="w-8 h-8 text-${w.color}-300"></i>
+          </div>` : ''}
+          <h3 class="cinzel text-lg font-bold text-${w.color}-300 mb-1 tracking-widest">${w.name}</h3>
+          <p class="crimson text-xs text-amber-200/60">Level ${w.level}</p>
+          <p class="crimson text-xs text-amber-200/60">God: ${w.god.charAt(0).toUpperCase() + w.god.slice(1)}</p>
+          <p class="crimson text-xs text-amber-200/60">Tribe: ${w.tribe.charAt(0).toUpperCase() + w.tribe.slice(1)}</p>
+          ${w.ashram ? `<p class="crimson text-xs text-red-400">ASHRAM MEMBER</p>` : ''}
+          <div class="mt-3 pt-3 border-t border-red-900/30">
+            <p class="crimson text-sm text-amber-200/70">${w.power.toLocaleString()} Power</p>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+    function filterByGod(god) {
+      // Reset tribe filter when selecting god
+      document.getElementById('tribe-filter').value = '';
+      
+      const grid = document.getElementById('warriors-grid');
+      if (!grid) return;
+      
+      const filtered = god === '' ? allWarriors : allWarriors.filter(w => w.god === god);
+      
+      // Determine name color based on god
+      function getGodColor(godName) {
+        if (godName === 'shiva') return 'blue';
+        if (godName === 'brahma') return 'yellow';
+        if (godName === 'vishnu') return 'red';
+        return 'red';
+      }
+      
+      grid.innerHTML = filtered.map(w => {
+        const nameColor = getGodColor(w.god);
+        return `
+        <div class="class-card rounded-lg p-6 text-center relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 px-3 py-1 rounded-full">
+            <span class="cinzel text-xs font-bold text-amber-50">RANK ${w.rank}</span>
+          </div>
+          ${w.rank <= 3 ? `<div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-${w.color}-600 to-${w.color}-900 border-2 border-${w.color}-500 flex items-center justify-center">
+            <i data-lucide="${w.icon}" class="w-8 h-8 text-${w.color}-300"></i>
+          </div>` : ''}
+          <h3 class="cinzel text-lg font-bold text-${nameColor}-300 mb-1 tracking-widest">${w.name}</h3>
+          <p class="crimson text-xs text-amber-200/60">Level ${w.level}</p>
+          <p class="crimson text-xs text-amber-200/60">God: ${w.god.charAt(0).toUpperCase() + w.god.slice(1)}</p>
+          <p class="crimson text-xs text-amber-200/60">Tribe: ${w.tribe.charAt(0).toUpperCase() + w.tribe.slice(1)}</p>
+          <div class="mt-3 pt-3 border-t border-red-900/30">
+            <p class="crimson text-sm text-amber-200/70">${w.power.toLocaleString()} Power</p>
+          </div>
+        </div>
+      `;
+      }).join('');
+      lucide.createIcons();
+    }
+
+    function filterByTribe(tribe) {
+      // Reset god filter when selecting tribe
+      document.getElementById('god-filter').value = '';
+      document.getElementById('ashram-filter').value = '';
+      
+      const grid = document.getElementById('warriors-grid');
+      if (!grid) return;
+      
+      const filtered = tribe === '' ? allWarriors : allWarriors.filter(w => w.tribe === tribe);
+      
+      grid.innerHTML = filtered.map(w => `
+        <div class="class-card rounded-lg p-6 text-center relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 px-3 py-1 rounded-full">
+            <span class="cinzel text-xs font-bold text-amber-50">RANK ${w.rank}</span>
+          </div>
+          ${w.rank <= 3 ? `<div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-${w.color}-600 to-${w.color}-900 border-2 border-${w.color}-500 flex items-center justify-center">
+            <i data-lucide="${w.icon}" class="w-8 h-8 text-${w.color}-300"></i>
+          </div>` : ''}
+          <h3 class="cinzel text-lg font-bold text-${w.color}-300 mb-1 tracking-widest">${w.name}</h3>
+          <p class="crimson text-xs text-amber-200/60">Level ${w.level}</p>
+          <p class="crimson text-xs text-amber-200/60">God: ${w.god.charAt(0).toUpperCase() + w.god.slice(1)}</p>
+          <p class="crimson text-xs text-amber-200/60">Tribe: ${w.tribe.charAt(0).toUpperCase() + w.tribe.slice(1)}</p>
+          <div class="mt-3 pt-3 border-t border-red-900/30">
+            <p class="crimson text-sm text-amber-200/70">${w.power.toLocaleString()} Power</p>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
+
+
+
+    function showDownloadsPage() {
+      // Hide main content and other pages
+      document.querySelector('.hero-bg').style.display = 'none';
+      const rankingsPage = document.getElementById('rankings-page');
+      const authPage = document.getElementById('auth-page');
+      const registerPage = document.getElementById('register-page');
+      if (rankingsPage) rankingsPage.style.display = 'none';
+      if (authPage) authPage.style.display = 'none';
+      if (registerPage) registerPage.style.display = 'none';
+      
+      // Create and show downloads page
+      let downloadsPage = document.getElementById('downloads-page');
+      if (!downloadsPage) {
+        downloadsPage = document.createElement('div');
+        downloadsPage.id = 'downloads-page';
+        downloadsPage.className = 'app-wrapper scrollbar-styled';
+        downloadsPage.style.cssText = 'background: #0a0304; color: #e8d5b0;';
+        downloadsPage.innerHTML = `
+          <!-- Navigation -->
+          <nav class="nav-wrap fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+              <div></div>
+              <div class="hidden md:flex items-center gap-8 cinzel text-sm tracking-widest text-amber-200/80">
+                <a href="#" onclick="navigateTo('home', event)" class="nav-link hover:text-red-400">HOME</a>
+                <a href="#" onclick="navigateTo('rankings', event)" class="nav-link hover:text-red-400">RANKINGS</a>
+                <a onclick="navigateTo('donation', event)" class="nav-link hover:text-red-400">DONATION</a>
+                <a href="#" onclick="navigateTo('downloads', event)" class="nav-link hover:text-red-400">DOWNLOADS</a>
+              </div>
+              <button onclick="showAuthPage(event)" class="btn-secondary px-5 py-2 rounded cinzel text-xs tracking-widest text-amber-100"> LOGIN/REGISTER </button>
+            </div>
+          </nav>
+
+          <!-- DOWNLOADS SECTION FULL PAGE -->
+          <section class="relative min-h-screen py-24 px-6 md:px-12 overflow-hidden" style="background: linear-gradient(180deg, #0a0304 0%, #000000 50%, #0a0304 100%); margin-top: 80px;">
+            <div class="max-w-7xl mx-auto">
+              <!-- Header -->
+              <div class="text-center mb-16">
+                <div class="flex items-center justify-center gap-4 mb-5">
+                  <div class="ornament-line w-20"></div>
+                  <i data-lucide="download" class="w-6 h-6 text-red-500"></i>
+                  <div class="ornament-line w-20"></div>
+                </div>
+                <h1 class="game-title text-5xl md:text-7xl font-black text-amber-50 mb-4 tracking-wider">DOWNLOAD <span class="text-red-600">TANTRA X</span></h1>
+                <p class="crimson italic text-xl text-amber-200/70">Begin your adventure today</p>
+              </div>
+
+              <!-- Platform Cards -->
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6 mb-12 max-w-2xl mx-auto">
+                <!-- PC -->
+                <div class="class-card rounded-lg p-8 text-center relative hover:shadow-2xl transition-all duration-300">
+                  <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-600 to-blue-900 border-2 border-blue-500 flex items-center justify-center">
+                    <i data-lucide="monitor" class="w-10 h-10 text-blue-300"></i>
+                  </div>
+                  <h3 class="cinzel text-2xl font-bold text-blue-300 mb-2 tracking-widest">PC</h3>
+                  <p class="crimson text-sm text-amber-200/60 mb-6">Windows 10+</p>
+                  <p class="crimson text-xs text-amber-200/50 mb-6">5 GB</p>
+                  <div class="space-y-3">
+                    <a href="https://mega.nz/file/L4gwxSCK#36ZIv6aAzu8D6lCOkYSn6q3ITah6-YP1UFQFQeli4P8" target="_blank" rel="noopener noreferrer" class="btn-primary w-full px-6 py-3 rounded cinzel text-sm font-bold tracking-widest text-amber-50 flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+                      <i data-lucide="download" class="w-4 h-4"></i> MEGA
+                    </a>
+                    <a href="https://www.mediafire.com/file/rlihyi1pyxge8t9/Tantra-X-Philippines.rar/file" target="_blank" rel="noopener noreferrer" class="btn-secondary w-full px-6 py-3 rounded cinzel text-sm font-bold tracking-widest text-amber-100 flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+                      <i data-lucide="download" class="w-4 h-4"></i> MEDIAFIRE
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- System Requirements -->
+              <div class="max-w-4xl mx-auto mb-12">
+                <div class="text-center mb-8">
+                  <h2 class="cinzel text-3xl font-black text-amber-50 tracking-wider mb-4">SYSTEM REQUIREMENTS</h2>
+                  <p class="crimson text-amber-200/70">Ensure your device meets these specifications for optimal gameplay</p>
+                </div>
+
+                <div class="max-w-2xl mx-auto">
+                  <!-- PC Requirements -->
+                  <div class="stat-card rounded-lg p-6 border border-red-900/40">
+                    <h3 class="cinzel text-xl font-bold text-amber-300 mb-4 tracking-widest">PC MINIMUM</h3>
+                    <ul class="crimson text-sm text-amber-200/70 space-y-2">
+                      <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-red-500 flex-shrink-0"></i> OS: Windows 7 64-bit</li>
+                      <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-red-500 flex-shrink-0"></i> CPU: Intel / AMD</li>
+                      <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-red-500 flex-shrink-0"></i> RAM: 4GB +</li>
+                      <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-red-500 flex-shrink-0"></i> Storage: 2GB +</li>
+                      <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-red-500 flex-shrink-0"></i> Internet: Broadband</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Section -->
+              <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                  <h2 class="cinzel text-3xl font-black text-amber-50 tracking-wider mb-4">FREQUENTLY ASKED</h2>
+                  <p class="crimson text-amber-200/70">Common questions about downloads and installation</p>
+                </div>
+
+                <div class="space-y-4">
+                  <div class="stat-card rounded-lg p-6 border border-red-900/40">
+                    <h4 class="cinzel font-bold text-amber-300 mb-2 tracking-widest">Can I play on multiple platforms?</h4>
+                    <p class="crimson text-sm text-amber-200/70">Yes! Your account is linked across all platforms. Progress transfers seamlessly.</p>
+                  </div>
+                  <div class="stat-card rounded-lg p-6 border border-red-900/40">
+                    <h4 class="cinzel font-bold text-amber-300 mb-2 tracking-widest">How often are updates released?</h4>
+                    <p class="crimson text-sm text-amber-200/70">Major updates every month with hotfixes released as needed. Auto-updates are enabled by default.</p>
+                  </div>
+                  <div class="stat-card rounded-lg p-6 border border-red-900/40">
+                    <h4 class="cinzel font-bold text-amber-300 mb-2 tracking-widest">Is there a file size limit on devices?</h4>
+                    <p class="crimson text-sm text-amber-200/70">Mobile versions use optimized assets. You can reduce quality settings to free up storage.</p>
+                  </div>
+                  <div class="stat-card rounded-lg p-6 border border-red-900/40">
+                    <h4 class="cinzel font-bold text-amber-300 mb-2 tracking-widest">How do I report download issues?</h4>
+                    <p class="crimson text-sm text-amber-200/70">Contact support@tantrax.ph with your device details and error logs for assistance.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+        document.body.appendChild(downloadsPage);
+        lucide.createIcons();
+      } else {
+        downloadsPage.style.display = 'block';
+      }
+    }
+
+
+    lucide.createIcons();
+
+    // Auth Page Functions
+    function showAuthPage(e) {
+      e.preventDefault();
+      // Hide main content and other pages
+      document.querySelector('.hero-bg').style.display = 'none';
+      const rankingsPage = document.getElementById('rankings-page');
+      const downloadsPage = document.getElementById('downloads-page');
+      const registerPage = document.getElementById('register-page');
+      if (rankingsPage) rankingsPage.style.display = 'none';
+      if (downloadsPage) downloadsPage.style.display = 'none';
+      if (registerPage) registerPage.style.display = 'none';
+      
+      let authPage = document.getElementById('auth-page');
+      if (!authPage) {
+        authPage = document.createElement('div');
+        authPage.id = 'auth-page';
+        authPage.className = 'app-wrapper scrollbar-styled';
+        authPage.style.cssText = 'background: #0a0304; color: #e8d5b0;';
+        authPage.innerHTML = `
+          <!-- Navigation -->
+          <nav class="nav-wrap fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-900 to-black border border-red-800 flex items-center justify-center">
+                  <i data-lucide="flame" class="w-5 h-5 text-red-500"></i>
+                </div>
+                <span class="cinzel font-bold text-xl tracking-widest text-amber-100">TANTRA X</span>
+              </div>
+              <div class="hidden md:flex items-center gap-8 cinzel text-sm tracking-widest text-amber-200/80">
+                <a href="#" onclick="backToHome(event)" class="nav-link hover:text-red-400">HOME</a>
+                <a href="#" onclick="showRankingsPage(event)" class="nav-link hover:text-red-400">RANKINGS</a>
+                <a onclick="showDonationPage(event)" class="nav-link hover:text-red-400">DONATION</a>
+                <a href="#" class="nav-link hover:text-red-400">DOWNLOADS</a>
+              </div>
+              <button onclick="backToHome(event)" class="btn-secondary px-5 py-2 rounded cinzel text-xs tracking-widest text-amber-100"> BACK </button>
+            </div>
+          </nav>
+
+          <!-- AUTH PAGE -->
+          <section class="relative min-h-screen py-24 px-6 md:px-12 overflow-hidden flex items-center justify-center" style="background: linear-gradient(180deg, #0a0304 0%, #000000 50%, #0a0304 100%); margin-top: 80px;">
+            <div class="w-full max-w-md">
+              <!-- Header -->
+              <div class="text-center mb-12">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                  <i data-lucide="lock" class="w-8 h-8 text-red-500"></i>
+                  <h1 class="cinzel text-4xl font-black text-amber-50 tracking-wider">ENTER THE REALM</h1>
+                </div>
+                <p class="crimson italic text-lg text-amber-200/70">Login to your account</p>
+              </div>
+
+              <!-- Auth Tabs -->
+              <div class="flex gap-4 mb-8">
+                <button id="login-tab" onclick="switchAuthTab('login')" class="flex-1 py-3 rounded cinzel font-bold tracking-widest text-amber-50 border-b-2 border-red-600 bg-red-900/20 transition-all">
+                  LOGIN
+                </button>
+                <button id="register-tab" onclick="switchAuthTab('register')" class="flex-1 py-3 rounded cinzel font-bold tracking-widest text-amber-200/70 border-b-2 border-red-900/40 hover:text-amber-50 transition-all">
+                  REGISTER
+                </button>
+              </div>
+
+              <!-- Login Form -->
+              <form id="login-form" onsubmit="handleAuthSubmit(event, 'login')" class="space-y-5">
+                <div>
+                  <label for="login-username" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">USERNAME</label>
+                  <input type="text" id="login-username" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Your username">
+                </div>
+                <div>
+                  <label for="login-password" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">PASSWORD</label>
+                  <input type="password" id="login-password" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="••••••••">
+                </div>
+                <div class="flex items-center justify-between">
+                  <label class="flex items-center gap-2 cinzel text-xs text-amber-200/70">
+                    <input type="checkbox" class="w-4 h-4 rounded bg-slate-800/60 border border-red-900/40">
+                    Remember me
+                  </label>
+                  <a href="#" class="cinzel text-xs text-red-400 hover:text-red-300">Forgot password?</a>
+                </div>
+                <button type="submit" class="w-full btn-primary px-6 py-4 rounded cinzel text-base font-bold tracking-widest text-amber-50 flex items-center justify-center gap-3 mt-8">
+                  <i data-lucide="user" class="w-5 h-5"></i>
+                  <span>GO TO PROFILE</span>
+                </button>
+              </form>
+
+              <!-- Register Form (hidden by default) -->
+              <form id="register-form" onsubmit="handleAuthSubmit(event, 'register')" class="space-y-5 hidden">
+                <div>
+                  <label for="register-firstname" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">FIRST NAME</label>
+                  <input type="text" id="register-firstname" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Your first name">
+                </div>
+                <div>
+                  <label for="register-lastname" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">LAST NAME</label>
+                  <input type="text" id="register-lastname" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Your last name">
+                </div>
+                <div>
+                  <label for="register-username" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">USERNAME</label>
+                  <input type="text" id="register-username" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Your username">
+                </div>
+                <div>
+                  <label for="register-email" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">EMAIL ADDRESS</label>
+                  <input type="email" id="register-email" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="your@email.com">
+                </div>
+                <div>
+                  <label for="register-password" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">PASSWORD</label>
+                  <input type="password" id="register-password" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="••••••••">
+                </div>
+                <div>
+                  <label for="register-confirm" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">CONFIRM PASSWORD</label>
+                  <input type="password" id="register-confirm" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="••••••••">
+                </div>
+                <div>
+                  <label for="register-security-question" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">SECURITY QUESTION</label>
+                  <select id="register-security-question" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 transition-colors">
+                    <option value="">Select a question</option>
+                    <option value="pet">What is the name of your Favorite Pet?</option>
+                    <option value="job">What is your Dream Job?</option>
+                    <option value="school">What is the name of your first school?</option>
+                    <option value="hero">Who is your favorite hero?</option>
+                    <option value="pastime">What is your favorite pastime?</option>
+                    <option value="sport">What is your favorite sport?</option>
+                    <option value="father">What is your father's last name?</option>
+                    <option value="girlfriend">Where did you meet your girlfriend?</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="register-security-answer" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">YOUR ANSWER</label>
+                  <input type="text" id="register-security-answer" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Enter your answer">
+                </div>
+                <div>
+                  <label for="register-security-code" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">SECURITY CODE</label>
+                  <input type="text" id="register-security-code" required maxlength="7" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 7)" class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Enter 7-digit security code">
+                  <p class="crimson text-xs text-amber-200/50 mt-2">Numbers only (up to 7 digits)</p>
+                </div>
+                <label class="flex items-center gap-2 cinzel text-xs text-amber-200/70">
+                  <input type="checkbox" required class="w-4 h-4 rounded bg-slate-800/60 border border-red-900/40">
+                  I agree to the Terms of Service and Privacy Policy
+                </label>
+                <button type="submit" class="w-full btn-primary px-6 py-4 rounded cinzel text-base font-bold tracking-widest text-amber-50 flex items-center justify-center gap-3 mt-8">
+                  <i data-lucide="user-plus" class="w-5 h-5"></i>
+                  <span>CREATE ACCOUNT</span>
+                </button>
+              </form>
+
+              <!-- Success Message (hidden by default) -->
+              <div id="auth-success" class="hidden mt-8 p-6 rounded-lg border border-emerald-600/40 bg-emerald-900/20">
+                <div class="flex gap-3 items-start">
+                  <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1"></i>
+                  <div>
+                    <h3 class="cinzel text-lg font-bold text-emerald-300 mb-2">WELCOME, WARRIOR</h3>
+                    <p class="crimson text-sm text-emerald-200/80" id="auth-success-msg">Your account has been created. The realm awaits your command!</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email Confirmation Step (hidden by default) -->
+              <div id="email-confirmation" class="hidden mt-8 space-y-6">
+                <div class="p-6 rounded-lg border border-blue-600/40 bg-blue-900/20">
+                  <div class="flex gap-3 items-start mb-4">
+                    <i data-lucide="mail" class="w-6 h-6 text-blue-400 flex-shrink-0 mt-1"></i>
+                    <div>
+                      <h3 class="cinzel text-lg font-bold text-blue-300 mb-2">VERIFY YOUR EMAIL</h3>
+                      <p class="crimson text-sm text-blue-200/80 mb-4">We've sent a confirmation email to <span id="confirm-email-display" class="font-bold text-blue-300"></span></p>
+                      <p class="crimson text-xs text-blue-200/60">Please check your email inbox and click the confirmation link to complete your registration.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="space-y-3">
+                  <label for="confirmation-code" class="block cinzel text-sm font-bold text-amber-300 tracking-widest">CONFIRMATION CODE</label>
+                  <input type="text" id="confirmation-code" maxlength="6" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 6)" class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors text-center text-2xl tracking-widest" placeholder="000000">
+                  <p class="crimson text-xs text-amber-200/50">Enter the 6-digit code from your email</p>
+                </div>
+
+                <button onclick="verifyEmailConfirmation()" class="w-full btn-primary px-6 py-4 rounded cinzel text-base font-bold tracking-widest text-amber-50 flex items-center justify-center gap-3">
+                  <i data-lucide="check" class="w-5 h-5"></i>
+                  <span>CONFIRM EMAIL</span>
+                </button>
+
+                <button onclick="resendConfirmationEmail()" class="w-full btn-secondary px-6 py-3 rounded cinzel text-sm font-bold tracking-widest text-amber-100">
+                  DIDN'T RECEIVE? RESEND EMAIL
+                </button>
+              </div>
+            </div>
+          </section>
+        `;
+        document.body.appendChild(authPage);
+        lucide.createIcons();
+      } else {
+        authPage.style.display = 'block';
+      }
+    }
+
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById('login-form');
+      const registerForm = document.getElementById('register-form');
+      const loginTab = document.getElementById('login-tab');
+      const registerTab = document.getElementById('register-tab');
+
+      if (tab === 'login') {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        loginTab.classList.add('border-red-600', 'bg-red-900/20');
+        loginTab.classList.remove('border-red-900/40', 'text-amber-200/70');
+        registerTab.classList.remove('border-red-600', 'bg-red-900/20');
+        registerTab.classList.add('border-red-900/40', 'text-amber-200/70');
+      } else {
+        registerForm.classList.remove('hidden');
+        loginForm.classList.add('hidden');
+        registerTab.classList.add('border-red-600', 'bg-red-900/20');
+        registerTab.classList.remove('border-red-900/40', 'text-amber-200/70');
+        loginTab.classList.remove('border-red-600', 'bg-red-900/20');
+        loginTab.classList.add('border-red-900/40', 'text-amber-200/70');
+      }
+    }
+
+    function handleAuthSubmit(e, type) {
+      e.preventDefault();
+
+      let username, email, password;
+      if (type === 'login') {
+        username = document.getElementById('login-username').value;
+        password = document.getElementById('login-password').value;
+        console.log('Login submitted:', { username, password });
+        
+        // Store login data and show profile page
+        window.userLoginData = {
+          username: username,
+          fullName: 'Warrior ' + username,
+          email: 'warrior@tantrax.ph',
+          dateRegistered: new Date(Date.now() - Math.random() * 90 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+          securityQuestion: 'What is your favorite hero?'
+        };
+        showProfilePage();
+        return;
+      } else {
+        const firstName = document.getElementById('register-firstname').value;
+        const lastName = document.getElementById('register-lastname').value;
+        username = document.getElementById('register-username').value;
+        email = document.getElementById('register-email').value;
+        password = document.getElementById('register-password').value;
+        const confirmPassword = document.getElementById('register-confirm').value;
+        const securityQuestion = document.getElementById('register-security-question').value;
+        const securityAnswer = document.getElementById('register-security-answer').value;
+        
+        // Check if passwords match
+        if (password !== confirmPassword) {
+          // Show error message
+          let errorMsg = document.getElementById('auth-error');
+          if (!errorMsg) {
+            errorMsg = document.createElement('div');
+            errorMsg.id = 'auth-error';
+            errorMsg.className = 'mt-6 p-4 rounded-lg border border-red-600/40 bg-red-900/20';
+            document.getElementById('register-form').parentNode.insertBefore(errorMsg, document.getElementById('register-form').nextSibling);
+          }
+          errorMsg.innerHTML = `
+            <div class="flex gap-3 items-start">
+              <i data-lucide="alert-circle" class="w-6 h-6 text-red-400 flex-shrink-0 mt-1"></i>
+              <div>
+                <h3 class="cinzel text-sm font-bold text-red-300 mb-1">PASSWORDS DO NOT MATCH</h3>
+                <p class="crimson text-xs text-red-200/80">Please ensure both password fields are identical.</p>
+              </div>
+            </div>
+          `;
+          errorMsg.classList.remove('hidden');
+          lucide.createIcons();
+          return;
+        }
+
+        // Clear any previous error messages if passwords match
+        const errorMsg = document.getElementById('auth-error');
+        if (errorMsg) errorMsg.classList.add('hidden');
+        
+        console.log('Register submitted:', { firstName, lastName, username, email, password, securityQuestion, securityAnswer });
+
+        // Store registration data for email verification
+        window.registrationData = {
+          firstName,
+          lastName,
+          username,
+          email,
+          password,
+          securityQuestion,
+          securityAnswer
+        };
+
+        // Hide register form and show email confirmation
+        document.getElementById('register-form').classList.add('hidden');
+        document.getElementById('auth-success').classList.add('hidden');
+        document.getElementById('email-confirmation').classList.remove('hidden');
+        document.getElementById('confirm-email-display').textContent = email;
+        document.getElementById('confirmation-code').value = '';
+        return;
+      }
+
+      // Hide form and show success
+      document.getElementById(type === 'login' ? 'login-form' : 'register-form').classList.add('hidden');
+      const errorMsg = document.getElementById('auth-error');
+      if (errorMsg) errorMsg.classList.add('hidden');
+      const successMsg = document.getElementById('auth-success');
+      const msg = type === 'login' ? 'Welcome back, warrior! Your account is ready.' : 'Your account has been created. The realm awaits your command!';
+      document.getElementById('auth-success-msg').textContent = msg;
+      successMsg.classList.remove('hidden');
+    }
+
+    function verifyEmailConfirmation() {
+      const code = document.getElementById('confirmation-code').value;
+      
+      if (code.length !== 6) {
+        alert('Please enter the 6-digit confirmation code.');
+        return;
+      }
+
+      // Show success message
+      document.getElementById('email-confirmation').classList.add('hidden');
+      document.getElementById('auth-success').classList.remove('hidden');
+      document.getElementById('auth-success-msg').textContent = 'Email verified! Your account is now active. Welcome to the realm, warrior!';
+
+      // Log successful registration
+      if (window.registrationData) {
+        console.log('Registration completed:', { ...window.registrationData, confirmationCode: code });
+      }
+
+      // Reset the auth page after a delay
+      setTimeout(() => {
+        document.getElementById('login-form').classList.remove('hidden');
+        document.getElementById('register-form').classList.add('hidden');
+        document.getElementById('auth-success').classList.add('hidden');
+        document.getElementById('email-confirmation').classList.add('hidden');
+        document.getElementById('login-tab').click();
+      }, 3000);
+    }
+
+    function resendConfirmationEmail() {
+      const email = window.registrationData?.email || document.getElementById('confirm-email-display').textContent;
+      
+      // Show feedback
+      const button = event.target;
+      const originalText = button.textContent;
+      button.textContent = 'EMAIL SENT!';
+      button.disabled = true;
+
+      setTimeout(() => {
+        button.textContent = originalText;
+        button.disabled = false;
+      }, 3000);
+
+      console.log('Resending confirmation email to:', email);
+    }
+
+    function showProfilePage() {
+      // Hide auth page and other pages
+      const authPage = document.getElementById('auth-page');
+      const rankingsPage = document.getElementById('rankings-page');
+      const downloadsPage = document.getElementById('downloads-page');
+      const registerPage = document.getElementById('register-page');
+      
+      if (authPage) authPage.style.display = 'none';
+      if (rankingsPage) rankingsPage.style.display = 'none';
+      if (downloadsPage) downloadsPage.style.display = 'none';
+      if (registerPage) registerPage.style.display = 'none';
+      
+      document.querySelector('.hero-bg').style.display = 'none';
+      
+      let profilePage = document.getElementById('profile-page');
+      if (!profilePage) {
+        profilePage = document.createElement('div');
+        profilePage.id = 'profile-page';
+        profilePage.className = 'app-wrapper scrollbar-styled';
+        profilePage.style.cssText = 'background: #0a0304; color: #e8d5b0;';
+        profilePage.innerHTML = `
+          <!-- Navigation -->
+          <nav class="nav-wrap fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-900 to-black border border-red-800 flex items-center justify-center">
+                  <i data-lucide="flame" class="w-5 h-5 text-red-500"></i>
+                </div>
+                <span class="cinzel font-bold text-xl tracking-widest text-amber-100">TANTRA X</span>
+              </div>
+              <div class="hidden md:flex items-center gap-8 cinzel text-sm tracking-widest text-amber-200/80">
+                <a onclick="navigateTo('home', event)" class="nav-link hover:text-red-400">HOME</a>
+                <a onclick="navigateTo('rankings', event)" class="nav-link hover:text-red-400">RANKINGS</a>
+                <a onclick="navigateTo('donation', event)" class="nav-link hover:text-red-400">DONATION</a>
+                <a onclick="navigateTo('downloads', event)" class="nav-link hover:text-red-400">DOWNLOADS</a>
+              </div>
+              <div class="flex items-center gap-3">
+                <button onclick="logoutUser(event)" class="btn-secondary px-5 py-2 rounded cinzel text-xs tracking-widest text-amber-100 flex items-center gap-2 hover:scale-105 transition-transform">
+                  <i data-lucide="log-out" class="w-4 h-4"></i>
+                  <span>LOGOUT</span>
+                </button>
+              </div>
+            </div>
+          </nav>
+
+          <!-- PROFILE PAGE -->
+          <section class="relative min-h-screen py-24 px-6 md:px-12 overflow-hidden" style="background: linear-gradient(180deg, #0a0304 0%, #000000 50%, #0a0304 100%); margin-top: 80px;">
+            <div class="max-w-4xl mx-auto">
+              <!-- Header -->
+              <div class="text-center mb-16">
+                <div class="flex items-center justify-center gap-4 mb-5">
+                  <div class="ornament-line w-20"></div>
+                  <i data-lucide="user" class="w-6 h-6 text-red-500"></i>
+                  <div class="ornament-line w-20"></div>
+                </div>
+                <h1 class="game-title text-5xl md:text-7xl font-black text-amber-50 mb-4 tracking-wider">ACCOUNT <span class="text-red-600">PROFILE</span></h1>
+              </div>
+
+              <!-- Profile Card -->
+              <div class="class-card rounded-lg p-8 border border-red-900/40">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <!-- Left: Avatar and Username -->
+                  <div class="flex flex-col items-center">
+                    <div class="w-32 h-32 rounded-full bg-gradient-to-br from-red-900 to-black border-2 border-red-600 flex items-center justify-center mb-6">
+                      <i data-lucide="shield" class="w-16 h-16 text-red-500"></i>
+                    </div>
+                    <h2 id="profile-username" class="cinzel text-2xl font-bold text-red-400 tracking-widest mb-2">WARRIOR</h2>
+                    <p class="crimson text-sm text-amber-200/60">Legendary Warrior</p>
+                  </div>
+
+                  <!-- Right: Account Details -->
+                  <div class="space-y-6">
+                    <!-- Full Name -->
+                    <div>
+                      <label class="block cinzel text-xs font-bold text-amber-400 mb-2 tracking-widest">FULL NAME</label>
+                      <div class="px-4 py-3 rounded bg-slate-800/40 border border-red-900/40">
+                        <p id="profile-fullname" class="crimson text-amber-100">Loading...</p>
+                      </div>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div>
+                      <label class="block cinzel text-xs font-bold text-amber-400 mb-2 tracking-widest">EMAIL ADDRESS</label>
+                      <div class="px-4 py-3 rounded bg-slate-800/40 border border-red-900/40">
+                        <p id="profile-email" class="crimson text-amber-100">Loading...</p>
+                      </div>
+                    </div>
+
+                    <!-- Date Registered -->
+                    <div>
+                      <label class="block cinzel text-xs font-bold text-amber-400 mb-2 tracking-widest">DATE REGISTERED</label>
+                      <div class="px-4 py-3 rounded bg-slate-800/40 border border-red-900/40">
+                        <p id="profile-registered" class="crimson text-amber-100">Loading...</p>
+                      </div>
+                    </div>
+
+                    <!-- Security Question -->
+                    <div>
+                      <label class="block cinzel text-xs font-bold text-amber-400 mb-2 tracking-widest">SECURITY QUESTION</label>
+                      <div class="px-4 py-3 rounded bg-slate-800/40 border border-red-900/40">
+                        <p id="profile-security-question" class="crimson text-amber-100">Loading...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-col sm:flex-row gap-6 mt-12 justify-center">
+                <button onclick="editProfile()" class="btn-secondary px-8 py-4 rounded cinzel text-base font-bold tracking-widest text-amber-100 flex items-center justify-center gap-3 hover:scale-105 transition-transform">
+                  <i data-lucide="edit" class="w-5 h-5"></i>
+                  <span>EDIT PROFILE</span>
+                </button>
+                <button onclick="changePassword()" class="btn-secondary px-8 py-4 rounded cinzel text-base font-bold tracking-widest text-amber-100 flex items-center justify-center gap-3 hover:scale-105 transition-transform">
+                  <i data-lucide="key" class="w-5 h-5"></i>
+                  <span>CHANGE PASSWORD</span>
+                </button>
+              </div>
+            </div>
+          </section>
+        `;
+        document.body.appendChild(profilePage);
+        lucide.createIcons();
+      }
+      
+      // Populate profile data
+      if (window.userLoginData) {
+        document.getElementById('profile-username').textContent = window.userLoginData.username.toUpperCase();
+        document.getElementById('profile-fullname').textContent = window.userLoginData.fullName;
+        document.getElementById('profile-email').textContent = window.userLoginData.email;
+        document.getElementById('profile-registered').textContent = window.userLoginData.dateRegistered;
+        document.getElementById('profile-security-question').textContent = window.userLoginData.securityQuestion;
+      }
+      
+      profilePage.style.display = 'block';
+    }
+
+    function logoutUser(e) {
+      e.preventDefault();
+      const profilePage = document.getElementById('profile-page');
+      if (profilePage) profilePage.remove();
+      window.userLoginData = null;
+      backToHome({preventDefault: () => {}});
+    }
+
+    function editProfile() {
+      alert('Edit Profile feature coming soon!');
+    }
+
+    function changePassword() {
+      alert('Change Password feature coming soon!');
+    }
+
+    function showRegisterPage(e) {
+      e.preventDefault();
+      document.querySelector('.hero-bg').style.display = 'none';
+      
+      let registerPage = document.getElementById('register-page');
+      if (!registerPage) {
+        registerPage = document.createElement('div');
+        registerPage.id = 'register-page';
+        registerPage.className = 'app-wrapper scrollbar-styled';
+        registerPage.style.cssText = 'background: #0a0304; color: #e8d5b0;';
+        registerPage.innerHTML = `
+          <!-- Navigation -->
+          <nav class="nav-wrap fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-red-900 to-black border border-red-800 flex items-center justify-center">
+                  <i data-lucide="flame" class="w-5 h-5 text-red-500"></i>
+                </div>
+                <span class="cinzel font-bold text-xl tracking-widest text-amber-100">TANTRA X</span>
+              </div>
+              <div class="hidden md:flex items-center gap-8 cinzel text-sm tracking-widest text-amber-200/80">
+                <a href="#" onclick="backToHome(event)" class="nav-link hover:text-red-400">HOME</a>
+                <a href="#" onclick="showRankingsPage(event)" class="nav-link hover:text-red-400">RANKINGS</a>
+                <a onclick="showDonationPage(event)" class="nav-link hover:text-red-400">DONATION</a>
+                <a href="#" onclick="showDownloadsPage(event)" class="nav-link hover:text-red-400">DOWNLOADS</a>
+              </div>
+              <button onclick="backToHome(event)" class="btn-secondary px-5 py-2 rounded cinzel text-xs tracking-widest text-amber-100"> BACK </button>
+            </div>
+          </nav>
+
+          <!-- REGISTER PAGE -->
+          <section class="relative min-h-screen py-24 px-6 md:px-12 overflow-hidden flex items-center justify-center" style="background: linear-gradient(180deg, #0a0304 0%, #000000 50%, #0a0304 100%); margin-top: 80px;">
+            <div class="w-full max-w-md">
+              <!-- Header -->
+              <div class="text-center mb-12">
+                <div class="flex items-center justify-center gap-3 mb-4">
+                  <i data-lucide="user-plus" class="w-8 h-8 text-red-500"></i>
+                  <h1 class="cinzel text-4xl font-black text-amber-50 tracking-wider">CREATE ACCOUNT</h1>
+                </div>
+                <p class="crimson italic text-lg text-amber-200/70">Create your account</p>
+              </div>
+
+              <!-- Register Form -->
+              <form id="register-page-form" onsubmit="handleRegisterPageSubmit(event)" class="space-y-5">
+                <div>
+                  <label for="reg-username" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">CHARACTER NAME</label>
+                  <input type="text" id="reg-username" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="Your warrior name">
+                </div>
+                <div>
+                  <label for="reg-email" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">EMAIL ADDRESS</label>
+                  <input type="email" id="reg-email" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="your@email.com">
+                </div>
+                <div>
+                  <label for="reg-password" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">PASSWORD</label>
+                  <input type="password" id="reg-password" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="••••••••">
+                </div>
+                <div>
+                  <label for="reg-confirm" class="block cinzel text-sm font-bold text-amber-300 mb-2 tracking-widest">CONFIRM PASSWORD</label>
+                  <input type="password" id="reg-confirm" required class="w-full px-4 py-3 rounded bg-slate-800/60 border border-red-900/40 focus:border-red-600 focus:outline-none crimson text-amber-100 placeholder-amber-200/30 transition-colors" placeholder="••••••••">
+                </div>
+                <label class="flex items-center gap-2 cinzel text-xs text-amber-200/70">
+                  <input type="checkbox" required class="w-4 h-4 rounded bg-slate-800/60 border border-red-900/40">
+                  I agree to the Terms of Service and Privacy Policy
+                </label>
+                <button type="submit" class="w-full btn-primary px-6 py-4 rounded cinzel text-base font-bold tracking-widest text-amber-50 flex items-center justify-center gap-3 mt-8">
+                  <i data-lucide="user-plus" class="w-5 h-5"></i>
+                  <span>CREATE ACCOUNT</span>
+                </button>
+              </form>
+
+              <!-- Success Message (hidden by default) -->
+              <div id="register-success" class="hidden mt-8 p-6 rounded-lg border border-emerald-600/40 bg-emerald-900/20">
+                <div class="flex gap-3 items-start">
+                  <i data-lucide="check-circle" class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1"></i>
+                  <div>
+                    <h3 class="cinzel text-lg font-bold text-emerald-300 mb-2">ACCOUNT CREATED</h3>
+                    <p class="crimson text-sm text-emerald-200/80">Your account has been created. The realm awaits your command!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+        document.body.appendChild(registerPage);
+        lucide.createIcons();
+      } else {
+        registerPage.style.display = 'block';
+      }
+    }
+
+    function handleRegisterPageSubmit(e) {
+      e.preventDefault();
+
+      const username = document.getElementById('reg-username').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+
+      console.log('Register submitted:', { username, email, password });
+
+      // Hide form and show success
+      document.getElementById('register-page-form').classList.add('hidden');
+      document.getElementById('register-success').classList.remove('hidden');
+    }
+
+    // Donation Page Functions
+    function showDonationPage(e) {
+      if (e) e.preventDefault();
+      // Hide other pages, keep current one visible
+      const rankingsPage = document.getElementById('rankings-page');
+      const downloadsPage = document.getElementById('downloads-page');
+      const authPage = document.getElementById('auth-page');
+      const registerPage = document.getElementById('register-page');
+      
+      document.getElementById('donation-modal').classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    function closeDonationPage() {
+      document.getElementById('donation-modal').classList.add('hidden');
+      // Reset form
+      document.getElementById('donation-form').reset();
+      document.getElementById('progress-container').classList.add('hidden');
+      document.getElementById('success-message').classList.add('hidden');
+      document.getElementById('receipt-confirmation').classList.add('hidden');
+      document.getElementById('donation-form').classList.remove('hidden');
+    }
+
+    function showReceiptConfirmation() {
+      document.getElementById('success-message').classList.add('hidden');
+      document.getElementById('receipt-confirmation').classList.remove('hidden');
+      
+      // Populate receipt details from stored donation data
+      if (window.lastDonationData) {
+        const data = window.lastDonationData;
+        document.getElementById('receipt-name').textContent = data.fullName;
+        document.getElementById('receipt-username').textContent = data.username;
+        document.getElementById('receipt-email').textContent = data.email;
+        document.getElementById('receipt-amount').textContent = '₱' + parseFloat(data.amount).toFixed(2);
+        document.getElementById('receipt-notes').textContent = data.notes || '(No message)';
+        document.getElementById('receipt-filename').textContent = data.receiptFile || 'receipt.jpg';
+        document.getElementById('receipt-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+      }
+    }
+
+    function downloadReceipt() {
+      // Create receipt content
+      if (!window.lastDonationData) return;
+      const data = window.lastDonationData;
+      const receiptContent = `
+TANTRA X PHILIPPINES - DONATION RECEIPT
+========================================
+Transaction ID: ${Math.random().toString(36).substr(2, 9).toUpperCase()}
+Date: ${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+
+DONOR INFORMATION
+Donor Name: ${data.fullName}
+In-Game Username: ${data.username}
+Email: ${data.email}
+
+DONATION DETAILS
+Amount Received: ₱${parseFloat(data.amount).toFixed(2)}
+Currency: Philippine Peso (PHP)
+Status: CONFIRMED
+
+MESSAGE
+${data.notes || '(No message)'}
+
+RECEIPT ATTACHMENT
+File: ${data.receiptFile || 'receipt.jpg'}
+Status: Received
+
+Thank you for supporting Tantra X Philippines!
+Your contribution strengthens the realm.
+
+======================================
+Official Receipt - Keep for your records
+      `.trim();
+
+      // Create blob and download
+      const blob = new Blob([receiptContent], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `TantraX_Receipt_${new Date().getTime()}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    }
+
+    function handleDonationSubmit(e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById('donor-name').value;
+      const email = document.getElementById('donor-email').value;
+      const username = document.getElementById('donor-username').value;
+      const amount = document.getElementById('donation-amount').value;
+      const notes = document.getElementById('donor-notes').value;
+      const receiptFile = document.getElementById('receipt-file').files[0];
+
+      // Hide form and show progress
+      document.getElementById('donation-form').classList.add('hidden');
+      document.getElementById('progress-container').classList.remove('hidden');
+
+      // Simulate progress
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += Math.random() * 30;
+        if (progress > 100) progress = 100;
+
+        document.getElementById('progress-bar').style.width = progress + '%';
+        document.getElementById('progress-percent').textContent = Math.floor(progress) + '%';
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            // Show success message
+            document.getElementById('progress-container').classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
+
+      // Log donation data (would be sent to server in production)
+            console.log('Donation Submitted:', {
+              fullName,
+              email,
+              username,
+              amount,
+              notes,
+              receiptFile: receiptFile ? receiptFile.name : 'No receipt',
+              timestamp: new Date().toISOString()
+            });
+
+            // Store donation data for receipt display
+            window.lastDonationData = {
+              fullName,
+              email,
+              username,
+              amount,
+              notes,
+              receiptFile: receiptFile ? receiptFile.name : 'receipt.jpg'
+            };
+          }, 400);
+        }
+      }, 200);
+    }
+
+    // Add background upload button to hero navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedBg = localStorage.getItem('tantraXBgImage');
+      if (savedBg) {
+        const wrappers = document.querySelectorAll('.app-wrapper');
+        wrappers.forEach(wrapper => {
+          wrapper.style.backgroundImage = `url('${savedBg}')`;
+        });
+      }
+    });
+
+    // Element SDK setup
+    const defaultConfig = {
+      background_image_url: '',
+      game_title: 'TANTRA X',
+      region_title: 'PHILIPPINES',
+      tagline: 'LEGENDS AWAKENED',
+      description: 'Experience the ultimate rebirth of a legend. Tantra X is more than just an MMORPG; it\'s a sanctuary for warriors seeking the perfect balance of nostalgia and modern excellence.',
+      cta_primary: 'LOGIN',
+      cta_secondary: 'REGISTER',
+      features_title: 'FORGE YOUR LEGEND',
+      feature_1_title: 'EPIC PVP BATTLES',
+      feature_1_desc: 'Clash with thousands in massive guild wars. Siege fortresses, conquer territories, and crown yourself king of the battlefield.',
+      feature_2_title: 'LEGENDARY CRAFTING',
+      feature_2_desc: 'Forge weapons of myth in the fires of ancient forges. Enchant blades with demon souls and create artifacts of unimaginable power.',
+      feature_3_title: 'HAUNTED DUNGEONS',
+      feature_3_desc: 'Descend into 50+ cursed labyrinths. Face towering bosses, solve ancient riddles, and claim treasures guarded by nightmare.',
+      footer_text: '© 2024 Tantra X Philippines. All souls reserved.'
+    };
+
+    function setText(id, text) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = text;
+    }
+
+    function setTitleHTML(text) {
+      const el = document.getElementById('game-title');
+      if (!el) return;
+      // Style last word/letter in red
+      const parts = text.trim().split(' ');
+      if (parts.length > 1) {
+        const last = parts.pop();
+        el.innerHTML = parts.join(' ') + ' <span class="text-red-600">' + last + '</span>';
+      } else {
+        // single word - color the last character
+        const chars = text.split('');
+        if (chars.length > 1) {
+          const last = chars.pop();
+          el.innerHTML = chars.join('') + '<span class="text-red-600">' + last + '</span>';
+        } else {
+          el.textContent = text;
+        }
+      }
+    }
+
+    function setFeaturesTitle(text) {
+      const el = document.getElementById('features-title');
+      if (!el) return;
+      const parts = text.trim().split(' ');
+      if (parts.length > 1) {
+        const last = parts.pop();
+        el.innerHTML = parts.join(' ') + ' <span class="text-red-600">' + last + '</span>';
+      } else {
+        el.textContent = text;
+      }
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig: defaultConfig,
+        onConfigChange: async (config) => {
+          setTitleHTML(config.game_title || defaultConfig.game_title);
+          setText('region-title', config.region_title || defaultConfig.region_title);
+          setText('tagline', config.tagline || defaultConfig.tagline);
+          setText('description', config.description || defaultConfig.description);
+          setText('cta-primary', config.cta_primary || defaultConfig.cta_primary);
+          setText('cta-secondary', config.cta_secondary || defaultConfig.cta_secondary);
+          setFeaturesTitle(config.features_title || defaultConfig.features_title);
+          setText('feature-1-title', config.feature_1_title || defaultConfig.feature_1_title);
+          setText('feature-1-desc', config.feature_1_desc || defaultConfig.feature_1_desc);
+          setText('feature-2-title', config.feature_2_title || defaultConfig.feature_2_title);
+          setText('feature-2-desc', config.feature_2_desc || defaultConfig.feature_2_desc);
+          setText('feature-3-title', config.feature_3_title || defaultConfig.feature_3_title);
+          setText('feature-3-desc', config.feature_3_desc || defaultConfig.feature_3_desc);
+          setText('footer-text', config.footer_text || defaultConfig.footer_text);
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['game_title', config.game_title || defaultConfig.game_title],
+          ['region_title', config.region_title || defaultConfig.region_title],
+          ['tagline', config.tagline || defaultConfig.tagline],
+          ['description', config.description || defaultConfig.description],
+          ['cta_primary', config.cta_primary || defaultConfig.cta_primary],
+          ['cta_secondary', config.cta_secondary || defaultConfig.cta_secondary],
+          ['features_title', config.features_title || defaultConfig.features_title],
+          ['feature_1_title', config.feature_1_title || defaultConfig.feature_1_title],
+          ['feature_1_desc', config.feature_1_desc || defaultConfig.feature_1_desc],
+          ['feature_2_title', config.feature_2_title || defaultConfig.feature_2_title],
+          ['feature_2_desc', config.feature_2_desc || defaultConfig.feature_2_desc],
+          ['feature_3_title', config.feature_3_title || defaultConfig.feature_3_title],
+          ['feature_3_desc', config.feature_3_desc || defaultConfig.feature_3_desc],
+          ['footer_text', config.footer_text || defaultConfig.footer_text]
+        ])
+      });
+    }
+   </script>
+  </div>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f4ccca88694e6b2',t:'MTc3NzYxNzY3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
